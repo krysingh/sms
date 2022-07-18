@@ -36,8 +36,8 @@
                                             <td>{{$data->email}}</td>
                                             <td><a href="{{route('user.edit',$data->id)}}" class="text-primary"><i
                                                         class="fa fa-edit"></i></a>
-                                                <a href="{{route('user.delete',$data->id)}}" class="text-danger"><i
-                                                        class="fa fa-trash" id="delete"></i></a>
+                                                <a href="{{route('user.delete',$data->id)}}" class="text-danger"
+                                                    id="delete"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         @endforeach

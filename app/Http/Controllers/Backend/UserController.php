@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 
 class UserController extends Controller
@@ -41,7 +42,7 @@ class UserController extends Controller
         $data->usertype=$res->usertype;
         $data->email=$res->email;
         $data->name=$res->name;
-        $data->password=bcrypt($res->password);
+        //$data->password=bcrypt($res->password);
         $data->save();
         $notification=[
             'message'=>'Data Updated Successfully',

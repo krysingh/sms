@@ -45,6 +45,7 @@
 
 
     <!-- Vendor JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{asset('backend/js/vendors.min.js')}}"></script>
     <script src="{{asset('assets/icons/feather-icons/feather.min.js')}}"></script>
     <script src="{{asset('assets/vendor_components/easypiechart/dist/jquery.easypiechart.js')}}"></script>
@@ -63,8 +64,8 @@
     $(function() {
         $(document).on('click', '#delete', function(e) {
             e.preventDefault();
-            var link = $(this).attr("href");
-            console.log(link);
+            let link = $('#delete').attr("href");
+            alert(link);
 
             Swal.fire({
                 title: 'Are you sure?',
@@ -113,6 +114,17 @@
             break;
     }
     @endif
+    </script>
+    <script>
+    $(document).ready(function() {
+        $('#image').change(function(e) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                let data = $("#showImg").attr('src', e.target.result);
+            }
+            reader.readAsDataURL(e.target.files[0]);
+        })
+    });
     </script>
 </body>
 
