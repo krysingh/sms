@@ -9,9 +9,9 @@
                     <div class="box">
                         <div class="box-header with-border">
                             <span>
-                                <h3 class="box-title">User Data </h3><a href="{{route('user.add')}}" style="float:right"
-                                    class="btn btn-rounded btn-success">Add
-                                    User</a>
+                                <h3 class="box-title">Student Year </h3><a href="{{route('student.year.add')}}"
+                                    style="float:right" class="btn btn-rounded btn-success">Add
+                                    Student</a>
                             </span>
                         </div>
                         <!-- /.box-header -->
@@ -21,23 +21,19 @@
                                     <thead>
                                         <tr>
                                             <th>Sr.No</th>
-                                            <th>Role</th>
                                             <th>Name</th>
-                                            <th>Email</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($allData as $key => $data)
+                                        @foreach($studentView as $key => $data)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$data->usertype}}</td>
                                             <td>{{$data->name}}</td>
-                                            <td>{{$data->email}}</td>
-                                            <td><a href="{{route('user.edit',$data->id)}}" class="text-primary"><i
-                                                        class="fa fa-edit"></i></a>
-                                                <a href="{{route('user.delete',$data->id)}}" class="text-danger"><i
-                                                        class="fa fa-trash"></i></a>
+                                            <td><a href="{{route('student.year.edit',$data->id)}}"
+                                                    class="text-primary"><i class="fa fa-edit"></i></a>
+                                                <a href="{{route('student.year.delete',$data->id)}}"
+                                                    class="text-danger"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         @endforeach

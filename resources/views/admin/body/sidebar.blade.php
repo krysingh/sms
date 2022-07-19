@@ -1,3 +1,7 @@
+@php
+$prefix=Request::route()->getPrefix();
+$route=Route::current()->getName();
+@endphp
 <aside class="main-sidebar">
     <!-- sidebar-->
     <section class="sidebar">
@@ -20,7 +24,7 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview {{(($prefix == '/user') ? 'active' : '')}}">
                 <a href="#">
                     <i data-feather="message-circle"></i>
                     <span>Manage User</span>
@@ -33,7 +37,7 @@
                     <li><a href="{{route('user.add')}}"><i class="ti-more"></i>Add User</a></li>
                 </ul>
             </li>
-            <li class="treeview">
+            <li class="treeview {{(($prefix == '/profile') ? 'active' : '')}}">
                 <a href="#">
                     <i data-feather="message-circle"></i>
                     <span>Manage User Profile</span>
@@ -43,7 +47,21 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('user.profile')}}"><i class="ti-more"></i>Your Profile</a></li>
-                    <li><a href="{{route('user.password')}}"><i class="ti-more"></i>Change Password</a></li>
+                    <li><a href="{{route('password.change.view')}}"><i class="ti-more"></i>Change Password</a></li>
+                </ul>
+            </li>
+            <li class="treeview {{(($prefix == '/student') ? 'active' : '')}}">
+                <a href="#">
+                    <i data-feather="message-circle"></i>
+                    <span>Setup Management</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('student.class.view')}}"><i class="ti-more"></i>Student Class</a></li>
+                    <li><a href="{{route('student.year.view')}}"><i class="ti-more"></i>Student Year</a></li>
+                    <li><a href="{{route('student.group.view')}}"><i class="ti-more"></i>Student Group</a></li>
                 </ul>
             </li>
         </ul>

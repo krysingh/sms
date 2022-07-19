@@ -52,7 +52,7 @@
                                         <div class="form-group">
                                             <label>Password</label>
                                             <input type="password" class="form-control" value="{{$editData->password}}"
-                                                id="password" name="password">
+                                                id="password" name="password" readonly>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">

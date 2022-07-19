@@ -16,9 +16,12 @@
                             style="background: url('{{asset('upload/no_image.jpg')}} center center;">
                             <a href="{{route('user.profile.edit')}}" style="float:right;" class="btn btn-primary">Edit
                                 Profile</a>
-                            <h3 class="widget-user-username">{{$userProfile->name}}</h3>
-                            <h6 class="widget-user-desc">{{$userProfile->usertype}}</h6>
-                            <h6 class="widget-user-desc">{{$userProfile->email}}</h6>
+                            <spna>
+                                <span class="widget-user-username">{{$userProfile->name}}</span>
+                                <span style="color:#cc6600;">({{$userProfile->usertype}})</span>
+                                </span>
+
+                                <!-- <h6 class="widget-user-desc">{{$userProfile->email}}</h6> -->
 
                         </div>
 

@@ -66,7 +66,6 @@
             e.preventDefault();
             let link = $('#delete').attr("href");
             alert(link);
-
             Swal.fire({
                 title: 'Are you sure?',
                 text: "Delete This Data?",

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Auth;
+
 
 class ProfileController extends Controller
 {
@@ -42,5 +44,30 @@ class ProfileController extends Controller
             'type'=>'success'
         ];
         return redirect()->route('user.profile')->with($notification);
+    }
+
+    public function ChangePassword(){
+        return view('backend.user.password_change_view');
+    }
+
+    public function UpdatePassword(Request $request){
+        $validateData=$request->validate([
+            'oldpassword'=>'required',
+            'password'=>'required|confirmed'
+        ]);
+       // dd($request->oldpassword);
+       $hashpassword=Auth::user()->password;
+        // dd($hashpassword);
+        // dd($request->oldpassword);
+        if(Hash::check($request->oldpassword,$hashpassword)){
+            $user=User::find(Auth::id());
+            $user->password=Hash::make($request->password);
+            $user->save();
+            Auth::logout();
+            return redirect()->route('login');
+        }else{
+            return redirect()->back();
+        }
+        
     }
 }
