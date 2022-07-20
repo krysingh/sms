@@ -23,7 +23,7 @@ class StudentYearController extends Controller
         $data->name=$request->name;
         $data->save();
         $notification=[
-            'message'=>'Data Submitted Successfully',
+            'message'=>'Year Submitted Successfully',
             'type'=>'success'
         ];
         return redirect()->route('student.year.view')->with($notification);
@@ -40,7 +40,7 @@ class StudentYearController extends Controller
         $data->name=$request->name;
         $data->save();
         $notification=[
-            'message'=>'Data Updated Successfully',
+            'message'=>'Year Updated Successfully',
             'type'=>'success'
         ];
         return redirect()->route('student.year.view')->with($notification);
@@ -48,7 +48,7 @@ class StudentYearController extends Controller
     public function StudentYeardelete($id){
         StudentYear::find($id)->delete();
         $notification=[
-            'message'=>'Data Deleted Successfully',
+            'message'=>'Year Deleted Successfully',
             'type'=>'success'
         ];
         return redirect()->route('student.year.view')->with($notification);

@@ -23,7 +23,7 @@ class StudentClassController extends Controller
         $data->name=$request->name;
         $data->save();
         $notification=[
-            'message'=>'Data Submitted Successfully',
+            'message'=>'Class Submitted Successfully',
             'type'=>'success'
         ];
         return redirect()->route('student.class.view')->with($notification);
@@ -40,7 +40,7 @@ class StudentClassController extends Controller
         $data->name=$request->name;
         $data->save();
         $notification=[
-            'message'=>'Data Updated Successfully',
+            'message'=>'Class Updated Successfully',
             'type'=>'success'
         ];
         return redirect()->route('student.class.view')->with($notification);
@@ -48,7 +48,7 @@ class StudentClassController extends Controller
     public function StudentClassdelete($id){
         StudentClass::find($id)->delete();
         $notification=[
-            'message'=>'Data Deleted Successfully',
+            'message'=>'Class Deleted Successfully',
             'type'=>'success'
         ];
         return redirect()->route('student.class.view')->with($notification);
